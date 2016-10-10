@@ -25,7 +25,7 @@ public class AllocationRepository {
         CriteriaQuery<Allocation> criteria = cb.createQuery(Allocation.class);
         Root<Allocation> allocation = criteria.from(Allocation.class);
 
-        criteria.select(allocation).orderBy(cb.asc(allocation.get("Start")));
+        criteria.select(allocation).orderBy(cb.asc(allocation.get("start")));
 
         return em.createQuery(criteria).getResultList();
     }
