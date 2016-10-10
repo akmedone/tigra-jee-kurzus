@@ -15,7 +15,7 @@ import java.io.Serializable;
 
 @Entity
 @XmlRootElement
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "Start"))
 public class Allocation extends EqualsById implements Serializable {
 
     @Id
