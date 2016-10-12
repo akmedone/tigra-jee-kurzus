@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
@@ -33,10 +34,14 @@ public class Allocation extends EqualsById implements Serializable {
 
     @NotNull
     @NotEmpty
+    @Pattern(regexp = "^((19|20)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01]) ([01]?[0-9]|2[0-3]):[0-5][0-9]$",
+            message = "Example: 2016-07-13 19:45")
     private String start;
 
     @NotNull
     @NotEmpty
+    @Pattern(regexp = "^((19|20)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01]) ([01]?[0-9]|2[0-3]):[0-5][0-9]$",
+            message = "Example: 2016-07-13 19:45")
     private String stop;
 
     @Override
