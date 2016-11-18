@@ -36,7 +36,7 @@
                 <p:selectOneButton value="#{newAllocation.room}">
                     <f:selectItem itemLabel="room 1" itemValue="room 1"/>
                     <f:selectItem itemLabel="room 2" itemValue="room 2"/>
-                    <f:selectItem itemLabel="room 3" itemValue="room 2"/>
+                    <f:selectItem itemLabel="room 3" itemValue="room 3"/>
                 </p:selectOneButton>
 
             </h:panelGrid>
@@ -81,6 +81,10 @@
             <h:column>
                 <f:facet name="header">stop</f:facet>
                 #{_allocation.stop}
+            </h:column>
+            <h:column>
+                <f:facet name="header">room</f:facet>
+                #{_allocation.room}
             </h:column>
         </h:dataTable>
 

@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by Ádám on 2016.10.05..
@@ -32,21 +33,10 @@ public class Allocation extends EqualsById implements Serializable {
     private String email;
 
     @NotNull
-    @NotEmpty
-    private String start;
+    private Date start;
 
     @NotNull
-    @NotEmpty
-
-    private String beginTime;
-
-    @NotNull
-    @NotEmpty
-    private String endTime;
-
-    @NotNull
-    @NotEmpty
-    private String stop;
+    private Date stop;
 
     @NotNull
     @NotEmpty
@@ -86,35 +76,21 @@ public class Allocation extends EqualsById implements Serializable {
         this.email = email;
     }
 
-    public String getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(String start) {
+    public void setStart(Date start) {
         this.start = start;
     }
 
-    public String getStop() {
+    public Date getStop() {
         return stop;
     }
 
-    public void setStop(String stop) {
+    public void setStop(Date stop) {
         this.stop = stop;
     }
 
-    public String getEndTime() {
-        return endTime;
-    }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getBeginTime() {
-        return beginTime;
-    }
-
-    public void setBeginTime(String beginTime) {
-        this.beginTime = beginTime;
-    }
 }
