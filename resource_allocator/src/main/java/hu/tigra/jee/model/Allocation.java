@@ -6,7 +6,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
@@ -34,15 +33,32 @@ public class Allocation extends EqualsById implements Serializable {
 
     @NotNull
     @NotEmpty
-    @Pattern(regexp = "^((19|20)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01]) ([01]?[0-9]|2[0-3]):[0-5][0-9]$",
-            message = "Example: 2016-10-12 12:00")
     private String start;
 
     @NotNull
     @NotEmpty
-    @Pattern(regexp = "^((19|20)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01]) ([01]?[0-9]|2[0-3]):[0-5][0-9]$",
-            message = "Example: 2016-10-12 12:00")
+
+    private String beginTime;
+
+    @NotNull
+    @NotEmpty
+    private String endTime;
+
+    @NotNull
+    @NotEmpty
     private String stop;
+
+    @NotNull
+    @NotEmpty
+    private String room;
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
 
     @Override
     public Long getId() {
@@ -84,5 +100,21 @@ public class Allocation extends EqualsById implements Serializable {
 
     public void setStop(String stop) {
         this.stop = stop;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getBeginTime() {
+        return beginTime;
+    }
+
+    public void setBeginTime(String beginTime) {
+        this.beginTime = beginTime;
     }
 }
