@@ -55,14 +55,19 @@
                                 warnClass="warning" globalOnly="true"/>
                 </h:panelGrid>
             </p>
+        </h:form>
 
+        <h1>Delete</h1>
 
+        <h:form>
             <h2>Delete</h2>
             <h:panelGrid columns="3">
-                <p:outputLabel value="ID:" for="id"/>
-                <p:autoComplete id="id2" dropdown="true" value="#{newAllocation.id}"
-                                completeMethod="#{autoCompleteView.completeText}"/>
-                <p:message for="id" errorClass="invalid"/>
+                <p:outputLabel value="ID:" for="id2"/>
+                <p:selectOneMenu id="id2" value="#{newAllocation.id}">
+                    <f:selectItem itemLabel="Select One" itemValue=""/>
+                    <f:selectItems value="#{allocations}" var="_allocation"
+                                   itemLabel="#{_allocation.id}" itemValue="#{_allocation.id}"/>
+                </p:selectOneMenu>
 
             </h:panelGrid>
             <p>
