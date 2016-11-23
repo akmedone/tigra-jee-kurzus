@@ -7,19 +7,16 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/default.xhtml">
     <ui:define name="content">
-        <h1>Modify</h1>
-        <h:form id="reg">
-            <h2>Modify</h2>
-            <h:panelGrid columns="3" columnClasses="titleCell">
 
-                <p:outputLabel value="ID:" for="id"/>
-                <p:autoComplete id="id" dropdown="true" value="#{newAllocation.id}"
-                                completeMethod="#{autoCompleteView.completeText}"/>
-                <p:message for="id" errorClass="invalid"/>
+        <h1>Allocations</h1>
+        <h:form id="reg">
+            <h2>Allocation Registration</h2>
+            <h:panelGrid columns="3" columnClasses="titleCell">
 
                 <p:outputLabel for="subjeckt" value="subjeckt:"/>
                 <p:inputText id="subjeckt" value="#{newAllocation.subject}"/>
                 <p:message for="subjeckt" errorClass="invalid"/>
+
 
                 <p:outputLabel for="email" value="email:"/>
                 <p:inputText id="email" value="#{newAllocation.email}"/>
@@ -29,7 +26,7 @@
                 <p:outputLabel for="start" value="start:"/>
                 <p:calendar id="start" value="#{newAllocation.start}" locale="de" navigator="true"
                             pattern="yyyy-MMM-dd HH:mm:ss"/>
-                <p:message for="start" errorClass="invalid"/>
+                <p:message for="stop" errorClass="invalid"/>
 
                 <p:outputLabel for="stop" value="stop:"/>
                 <p:calendar id="stop" value="#{newAllocation.stop}" locale="de" navigator="true"
@@ -48,8 +45,63 @@
             <p>
                 <h:panelGrid columns="2">
                     <h:commandButton id="register"
-                                     action="#{allocationController.register}"
-                                     value="Register" styleClass="register"/>
+                                     actionListener="#{allocationController.register}"
+                                     value="Register" styleClass="register"
+                                     action="index.jsf"
+                    />
+                    <h:messages styleClass="messages"
+                                errorClass="invalid" infoClass="valid"
+                                warnClass="warning" globalOnly="true"/>
+                </h:panelGrid>
+            </p>
+        </h:form>
+
+
+        <h1>Modify</h1>
+        <h:form id="modify">
+            <h2>Modify</h2>
+            <h:panelGrid columns="3" columnClasses="titleCell">
+
+                <p:outputLabel value="ID:" for="id"/>
+                <p:autoComplete id="id" dropdown="true" value="#{newAllocation.id}"
+                                completeMethod="#{autoCompleteView.completeText}"/>
+                <p:message for="id" errorClass="invalid"/>
+
+                <p:outputLabel for="subjeckt1" value="subjeckt:"/>
+                <p:inputText id="subjeckt1" value="#{newAllocation.subject}"/>
+                <p:message for="subjeckt1" errorClass="invalid"/>
+
+                <p:outputLabel for="email1" value="email:"/>
+                <p:inputText id="email1" value="#{newAllocation.email}"/>
+                <p:message for="email1" errorClass="invalid"/>
+
+
+                <p:outputLabel for="start1" value="start:"/>
+                <p:calendar id="start1" value="#{newAllocation.start}" locale="de" navigator="true"
+                            pattern="yyyy-MMM-dd HH:mm:ss"/>
+                <p:message for="start1" errorClass="invalid"/>
+
+                <p:outputLabel for="stop1" value="stop:"/>
+                <p:calendar id="stop1" value="#{newAllocation.stop}" locale="de" navigator="true"
+                            pattern="yyyy-MMM-dd HH:mm:ss"/>
+                <p:message for="stop1" errorClass="invalid"/>
+
+
+                <p:selectOneButton value="#{newAllocation.room}">
+                    <f:selectItem itemLabel="room 1" itemValue="room 1"/>
+                    <f:selectItem itemLabel="room 2" itemValue="room 2"/>
+                    <f:selectItem itemLabel="room 3" itemValue="room 3"/>
+                </p:selectOneButton>
+
+            </h:panelGrid>
+
+            <p>
+                <h:panelGrid columns="2">
+                    <h:commandButton id="modifyB"
+                                     actionListener="#{allocationController.register}"
+                                     value="Register" styleClass="register"
+                                     action="index.jsf"
+                    />
                     <h:messages styleClass="messages"
                                 errorClass="invalid" infoClass="valid"
                                 warnClass="warning" globalOnly="true"/>
@@ -73,8 +125,10 @@
             <p>
                 <h:panelGrid columns="2">
                     <h:commandButton id="delete"
-                                     action="#{allocationController.delete}"
-                                     value="Delete" styleClass="Delete"/>
+                                     actionListener="#{allocationController.delete}"
+                                     value="Delete" styleClass="Delete"
+                                     action="index.jsf"
+                    />
                     <h:messages styleClass="messages"
                                 errorClass="invalid" infoClass="valid"
                                 warnClass="warning" globalOnly="true"/>
